@@ -1,0 +1,7 @@
+Array ADT created using struct initialised via {{1,2,3,4,5},20,5}.
+Adding/Deleting an element best case O(1) and worst case O(n).
+Linear and Binary search done.
+Use pointers for reversing or swapping elements in an Array.
+Merge two Arrays using 3 pointers using while loop -> usually one Array has leftover elements then put them in the merged Array using a for loop.
+Use pointers for finding missing/duplicates in an array or u can also use hashing which has lower time complexity.
+Hash Array is an array which is initialised to 0 and has indexes upto the largest element in the given array.

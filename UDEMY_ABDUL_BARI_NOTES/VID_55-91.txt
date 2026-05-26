@@ -1,0 +1,7 @@
+Head recursion: recursive call before any lines.
+Tail recursion: recursive call after all lines.
+Nested recursion: fun(fun(n-1))
+nCr coded via Pascal's rule(for recursion).
+if Array initialised then even if not all elements are given value they all get initialised to 0.
+Dynamic Array created(in heap) using pointer variables (eg: *p) and allocated memory using 'new int[n]'.
+Horner's rule i can be used to reduce complexity from O(n^2) to O(n).

@@ -1,0 +1,6 @@
+Using 3 if-else conditions and two pointers to find two sum and two difference.
+\0 is used as end of string character almost all string methods are dependent on that.
+Upper case - Lower case = 32 in ASCII.
+Remember ASCII values of Upper and Lower case A-Zs.
+Bitwise operators:  1. Masking (ANDing specifically to check if a bit is on or not).
+                    2. Merging (ORing specifically and storing the new value to turn on a particular bit).
