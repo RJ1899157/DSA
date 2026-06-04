@@ -1,0 +1,19 @@
+Use classes in cpp for element that store (i ,j ,x ).
+Class for sparse matrix that has functions for read and display as well as constructors and destructors ad has a pointer of element to store the values.
+Use two structures one to store coeff and exp and other named poly to have no of terms and a pointer variable for terms.
+Linked list has variable size data structure. Memory created in heap during run time.
+Linked list is a collection of nodes which store data and pointer to the next node. Non-contiguous memory allocation.
+Pointer is of node type. 
+struct Node{
+    int data;
+    struct Node *next; //self referential structure
+} 
+structure-> everything is public | class -> everything is private by default.
+p= new Node;//to declare new node
+p-> data=10;//assign value to data in a node.
+p-> next; accessing structure members using -> operator.
+struct Node *p=NULL/0;
+Use another pointer to access any linked list.
+Dont forget to use dummy nodes to initialise a likned list.
+use 2 pointers for insertion or deletion in between a linked list.
+for deletion use delete p; to free up the memory space.

@@ -4,3 +4,6 @@ Upper case - Lower case = 32 in ASCII.
 Remember ASCII values of Upper and Lower case A-Zs.
 Bitwise operators:  1. Masking (ANDing specifically to check if a bit is on or not).
                     2. Merging (ORing specifically and storing the new value to turn on a particular bit).
+Matrices can be stored in a 1-dimensional array using row/column-major mapping.
+Matrices seem to be repetitive patterns through and through.
+Sparse matrices can be coded using structs(for C) and classes(for CPP).
