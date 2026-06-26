@@ -1,0 +1,24 @@
+concatenation- just joining two linked lists.
+merging- merging all elements from two linked lists.
+To check for a LOOP in a linked list use 2 pointers -> move one pointer by 1 step and other by 2 steps.
+If they ever meet again then a loop exists else if even one of them becomes NULL then its a linear linked list.
+
+(Singly) Circular Linked List 
+Use Head pointer to mark the beginning of a circular linked list.
+for a circular linked list with empty node its represented empty node pointing to itself.
+
+Doubly Linked List
+Nodes have a pointer to both the next node and the previous node.
+Bi-directional traversal is made possible.
+
+Circular DOUBLY Linked List
+Gives bi-directional and circular access to its elements.
+Insertion anywhere in a Doubly circular LL requires modification of 4 links.
+
+two pointers can be used to find the middle element in a linked list without traversing the linked list more than once.
+stack helps in moving backwards in a singly linked list.
+
+STACK (using array)
+empty-> if top=-1
+full-> if top = size-1
+index = top - pos + 1 for array based stack to access its element.

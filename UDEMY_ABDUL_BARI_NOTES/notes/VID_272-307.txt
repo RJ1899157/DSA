@@ -1,0 +1,37 @@
+STRICT BINARY TREE
+a node can have either 0 or 2 children.
+
+if height given then a tree with
+min no of nodes - 2h + 1
+max no of nodes - 2^(h + 1) - 1
+
+if n nodes are given
+min height - log(n + 1) - 1
+max height - n - 1 / 2 
+
+ARRAY REPRESENTATION OF BINARY TREE
+PARENT - i 
+left child - 2i
+right child - 2i + 1
+
+LINKED REPRESENTATION OF BINARY TREE
+use doubly linked list
+Lchild  | DATA | Rchild
+
+BINARY TREE TRAVERSALS
+Pre order - node left right
+Inorder -  left node right 
+Post order - left right node
+Level order - level by level traversal
+
+only preorder/postorder + Inorder can be used to generate a binary tree.
+
+BINARY SEARCH TREE
+all elements in left subtree are smaller than the current node and all the elements in the right subtree are greater than the current node.
+no duplicates
+Inorder traversal gives an array in sorted order
+LINKED REPRESENTATION IS preferred.
+t(n) = h
+insertion takes logn time and can be done using a tail pointer
+creating a BST take nlogn time
+while deleting a node in BST its inorder predecessor or successor shall take its place.

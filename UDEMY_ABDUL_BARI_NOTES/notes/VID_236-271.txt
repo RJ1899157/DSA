@@ -1,0 +1,66 @@
+STACK (using linked list)
+to insert new node in stack:-
+create new node t 
+if t=null then stack overflow
+else t->data=x t->next=top top=t
+if top=null then stack underflow
+
+infix to postfix
++,- -lowest precedence
+*,/ -higher precedence
+() -highest precedence
+if precedences are same then take it from left to right.
+
+using stack method
+operators directly in postfix
+operands in stack
+if the top of stack points to an operand of lower precedence then push operand.
+else pop the higher or equal precedence operand in the postfix expression then push the current operand on the stack.
+after reaching end of the expression empty the stack.
+u can consider operators as the highest precedence push them on stack while conversion as well.
+
+evaluation of postfix expression
+push operands till an operator appear
+do the operation after popping out two operands from the stack
+then push the result back in the stack
+pop out in right to left manner.
+
+QUEUE
+FIFO structure
+can be implemented using array and 2 pointers.(in C)
+drawback: space is empty in queue but cause of pointers moved forward no more elements can be added therefore causes wastage of space.
+solution: resetting the pointers.
+            circular queue
+
+CIRCULAR QUEUE
+start the pointers from 0 instead of -1
+leave one empty space else both pointers will to same index and queue underflow.
+use (rear+1)%size to allot index to both pointers.
+
+QUEUE USING LINKED LIST 
+front=NULL queue is empty.
+if a new node cant be created then queue is full.
+
+DOUBLE ENDED QUEUE (DEQ)
+Can use both the pointers to insert as well as delete.
+
+TREES
+collection of (n) nodes and (n-1) edges.
+degree of a node - no of direct children it has
+level starts from 1 at root to last leaf while height starts from 0.
+
+BINARY TREE
+a tree of degree 2- left child and right child.
+
+if n unlabelled nodes are given then catalan number of trees are possible that is 2nCn/n+1
+for labelled nodes multiply catalan number with no of nodes factorial. 2nCn/n+1 * n!
+
+if height given then a tree with
+min no of nodes - h+1
+max no of nodes - 2^(h+1) - 1
+
+if no of nodes are given then a tree with
+min height - log(n+1) - 1
+max height - n - 1
+
+deg(0) = deg(2) + 1

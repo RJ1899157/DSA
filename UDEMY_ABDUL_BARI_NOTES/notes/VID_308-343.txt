@@ -1,0 +1,158 @@
+generating BST from Preorder/Postorder Traversal
+maintain a stack while creating the BST
+push address when u go to a left child but not when u move to a right child.
+take O(n) time.
+
+Drawbacks of BST
+They have no control over there height while insertion and creation
+
+AVL TREES
+Height balanced BST
+balance factor = height of left subtree - height of right subtree
+balance factor is calculated for all nodes of a tree and its value should be {-1,0,1}
+if balance factor is greater than 1 then the node is said to be imbalanced
+
+Rotations for insertion in AVL TREES
+
+LL - when node becomes imbalanced because of insertion in left child's left node.
+LL/Right/Clockwise Rotation is performed.
+
+RR - imbalance cuz of insertion in Right child's Right node
+RR/Left/Anti-Clockwise Rotation is performed.
+
+LR - imbalance due to insertion in Left child's Right node.
+LR/Left Rotation then Right Rotation
+
+RL - imbalance due to insertion in Right child's Left node.
+RL/Right Rotation then Left Rotation
+
+only check the next 2 nodes for LL/RR/LR/RL rest any posn after that is a part of that only.
+
+Rotations for Deletion
+
+L1 rotation - Deletion from RHS causing imbalance due to LHS 
+see balance factor of the left child of the imbalanced node.
+perform LL rotation.
+
+L-1 rotation - see balance factor of the left child of the imbalanced node.
+perform LR rotation.
+
+L0 Rotation - see balance factor of the left child of the imbalanced node.
+can perfom any rotation either LL or LR 
+
+similarly for R1 R-1 and R0 rotation.
+
+Search Trees
+
+2-3 Trees aka M-Way Search Tree
+search trees with degree 3
+height balanced trees or B-trees of degree 3
+all leaf nodes must be at same level
+each node must have atleast 2 children.
+
+2 keys inside the node such that
+K1<K2 that is internal keys must be sorted.
+
+keys present in Left child must be <K1
+keys present in middle child K1< m <K2
+keys present in Right child must be >K2
+
+while inserting they grow upwards.
+whenever u r stuck with 3 elements then just split the elements into middle going upto the root lower being left and higher being right
+
+if leaf node then simply delete
+while deleting when u have a vacant node then just merge nodes to save space incase of the rightmost node bring K2 down to the middle one and get rid of the rightmost vacant space.
+we can also borrow while deleting -> deletion should only be done when borrowing is not possible
+
+2-3-4 Tree
+B-tree of Degree 4
+3 keys and 4 children possible
+
+Red-Black Trees
+Height balanced BST similar to AVL or 2-3-4 trees
+every node is either red or black
+root of the tree is always black
+Null nodes are also black.
+every path from root to leaf have same number of black nodes
+no 2 consecutive red nodes i.e. parent and children of red nodes are always black
+newly inserted nodes are inserted as red nodes
+
+insertion is same as BST but when red-red conflict arises its dealt via recoloring or rotation
+if uncle is red recolor both dad and uncle node
+if uncle is black but dad is red then perform rotation
+
+red black trees can be interpretted as 2-3-4 trees where black nodes mean a separate node and red node means that its a part of the parent black node.
+
+deletion from red-black trees(similar to BSTs)
+red leaf node can be simply deleted
+in case of red internal node choose inorder pre or succ and choose the one thats red.
+or any kind of red node is deleted then its child shall take its place
+if black node is being deleted and its sibling is red then its child shall take its place and rotation shall be performed with recoloring is necessary.
+
+Heap
+it is a complete Binary Tree
+MAX HEAP - all parent nodes should have value greater than or equal to its children nodes
+MIN HEAP - all parent nodes should have value LESS than or equal to its children nodes
+represented mostly using array and is of height logn
+parent of a leaf is always at i/2 in a complete binary tree.
+In a heap only the Root element can be deleted.
+
+Heap Sort - nlogn
+create heap of n elements
+delete elements one by one
+
+Heapify - n 
+start from right to left in a binary tree 
+compare each node with its children and make sure they make a heap
+incase any parent less than children compare and switch elements and make necessary adjustments
+
+Binary Heap as Priority Queue
+IN A PRIORITY QUEUE 
+insert elements in whatever order necessary - O(1)
+delete elements by finding the one with the highest Priority moving it to the front of the queue and then deleting it
+
+USING MAX HEAP
+insertion- logn
+deletion- logn
+
+
+SORTING TECHNIQUES
+
+COMPARISON-BASED 
+
+N^2
+BUBBBLE
+INSERTION 
+SELECTION
+
+NLOGN 
+HEAP
+MERGE 
+QUICK 
+TREE 
+
+SHELL SORT - N^3/2
+
+INDEX-BASED ( CONSUME MORE MEMORY THAN COMPARISON BASED )
+
+N 
+COUNT 
+BUCKET/BIN 
+RADIX
+
+BUBBLE SORT - N^2
+KEEP CHECKING PAIRS OF ELEMENTS IN AN ARRAY ONE PASS AT A TIME 
+
+INSERTION SORT - N^2
+
+HOW INSERTION TAKES PLACE???
+FROM THE LAST INDEX GO ON SHIFTING ELEMENTS THAT ARE LARGER THAN THE NUMBER TO BE INSERTED 
+WHEN U COME ACROSS THE NUMBER THATS LESS THAN THE TARGET ELEMENT INSERT IT JUST AFTER IT WHERE THERE IS ALREADY FREE SPACE CREATED.
+IN A LINKED LIST
+WE HAVE TO USE 2 POINTERS TO FIND THE WHERE THE TARGET ELEMENT IS TO BE INSERTED AND THEN INSERT IT.
+
+INSERTION SORT IN ACTION...
+ASSUME THE FIRST ELEMENT IS ALREADY SORTED 
+REST OF THE ARRAY ASSUME ITS UNSORTED AND TAKE ELEMENTS OUT OF IT ONE BY ONE AND INSERT IT TO THE SORTED SIDE.
+TAKES N-1 PASSES.
+MORE COMPATIBLE WITH LINKED LIST.
