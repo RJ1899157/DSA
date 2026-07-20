@@ -1,0 +1,38 @@
+Prim's Algorithm
+choose the minimum edge and connect or can choose any vertex
+now choose the next minimum edge from the two connected vertices only to form a continuous MST
+have an adjacency matrix with costs for the array
+select an edge and check the minimum cost edge associated with it and select that
+also maintain the same boolean selected array to keep check of cycles
+have an array near of size equal to number of vertices
+In near array compare whether the vertices are closer to the selected vertices or not and fill it up with the selected vertices' number
+if same value then can choose either
+dont fill those indexes which are already selected
+search through the near array to find the minimum cost edge and choose that pair
+the new pair becomes the updates U and V 
+update the near and selected array again
+if after selection of new vertex in the near array any cost is less than the previous values then update the array with that vertex 
+again scan the near array for minimum cost
+
+Dijkstra's Algorithm
+-Single Source Shortest Path
+first mark all the distances then choose the Shortest path out of them
+from there check any shorter distances available and if yes then update using the shorter values
+relax all vertices after each iteration
+
+if (d[u] + cost[u][v] < d[v]){
+    d[v]= d[u] + cost[u][v]
+}
+
+using adjacency matrix represent the graph
+use MAX_INT for non reachable edges
+have two arrays one that shall be used for relaxing the edges and other that shall be used to verify whether a vertex is traversed or not
+use the dijkstra formula to relax edges again after each selection
+O(n^2)
+
+Optimal Merge Pattern
+Merging is the process of combining two sorted lists into a single sorted list
+Cost of Merging depoends on the Pattern u choose
+sort the lists on the basis of their size then choose the two shortest ones and select them for merging and repeat this process again and again
+
+Dynamic Programming

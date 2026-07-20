@@ -1,0 +1,63 @@
+Disjoint Subsets are those whose intersection are phi ø
+we can connect nodes in a Disjoint sets but not the elements of the same set since that will cause a cycle
+
+Recurrence Relation
+can use substituion method
+master theorem for decreasing functions:-
+    T(n)= aT(n-b) + f(n)
+
+    Case 1: a=1
+        O( n * f(n) )
+    Case 2: a>1
+        O( a^n/b * f(n) )
+    Case 3: a<1
+        O( f(n) )
+
+master theorem for Dividng functions:-
+    T(n)= aT(n/b) + n^k * (log n)^p
+    
+    Case 1: logb a > k
+        T(n)= O( n^logb a )
+    Case 2: logb a = k
+        T(n)= O(f(n) * logn )
+    Case 3: logb a < k
+        T(n)= O( f(n) )
+
+Asymptotic Notations:
+Big - oh - Worst Case
+Big - Theta - Avg Case
+Big - Omega - Best Case
+
+Divide And Conquer Algorithm
+divide the given problem into subproblems 
+solve those subproblems
+combine all those solutions and get the solution for the main problem
+the procedures are recursive in nature
+Binary Search uses D&C
+Merge Sort uses D&C 
+
+Optimization Problems - problem which as multiple constraints as well as an objective (can be about maximising or minimising the result)
+solutions that satisfy the constraints are called feasible problems
+out of the feasible solution the one that satisfies the objective is the optimal solution
+Greedy Method , Branch and Bound and DP are used for optimization problems
+
+Greedy Method
+main strength of greedy is the selection procedure which allows elements to be selected in a max or min way
+
+Fractional Knapsack - decreasing order of object's profit/weight - O(n)
+
+Minimum Cost Spanning Tree 
+subgraph of a graph having all the vertices having v-1 edges 
+should not have a cycle
+all nodes should be connected
+
+Kruskal's Algorithm
+-Greedy in nature 
+always select the Minimum cost edge such that it doesnt result in a cycle
+no MSTs exist for non connected graphs
+represent the graph using a matrix with three columns U V Cost for the cost of edge U to V - an Edge List
+scan through the cost to find the minimum cost and have a serparate array to mark if an edge has already been chosen or not
+to check for cycles
+    have another array for parent nodes all initialised to -1
+    its like using disjoint sets
+    make the entry true in the array for minimum values

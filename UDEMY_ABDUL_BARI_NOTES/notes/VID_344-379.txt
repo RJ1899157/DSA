@@ -1,0 +1,148 @@
+SELECTION SORT - N^2
+we select a position in each pass starting from 0 to n-1.
+find the smallest element using two pointers and swap it with the selected element.
+now first element is sorted.
+select the next position and start finding the smallest element again.
+
+QUICK SORT - best/avg case NLOGN | worst case N^2
+choose a pivot element
+take i from pivot element searching for elements greater than pivot
+take j from the end searching for elements less than or equal to pivot
+when i or j find the element they stop and interchange the positions of those elements
+continue i and j from those positions only 
+when i becomes greater than j that is the pointers cross each other interchange pivot element with j pointer.
+now pivot element is in its sorted position.
+apply quick sort recursively to the left and right portions of the sorted pivot element.
+
+MERGE SORT - NLOGN
+basically merging two sorted arrays that are stored in one array only using the help of auxiliary array- 2way merging
+run the loop from 2 to logn times since logn passes happen during merge sort
+
+COUNT SORT - N
+take an array named count and its size should be equal to the maximum element present in the given array. initialise it with 0.
+increment each index +1 for every occurrence of that number.
+traverse the count array from 0 index onwards and start -1 for every occurrence while changing the array.
+
+BIN/BUCKET SORT - N 
+take an array named count and its size should be equal to the maximum element present in the given array. initialise them with NULL
+traverse the given array and make the bin array point to each occurrence in a singly linked list manner effectively making it an array of linked list.
+
+RADIX SORT - N 
+take another array of size 10 bins and initialise them to null 
+traverse the given array and take %10 of each element and add them to that digit's bin
+take them out similar to bin sort now the bin array is empty
+now again add them to the bin based on the second digit of the number that is (x/10)%10
+now empty all the bins again
+now again add them to the bin based on the third digit of the number that is (x/100)%10
+now empty all the bins again now the elements are sorted 
+depends on the maximum number of digits.
+
+SHELL SORT - NLOGN OR EQUIVALENT TO N^3/2
+used for very large size of lists.
+based on the logic of insertion sort.
+perform insertion sort with a gap between the elements
+gap= n/2 floor value
+perform insertion sort
+while comparing all the elements at that particular gap are compared one by one till the smallest element is put in the place of of the earliest possible gap
+again divide the gap by 2 and floor it
+again compare the elements using insertion sort with the new gap value
+when gap=1 its the same as insertion sort
+
+HASHING TECHNIQUES
+useful for searching
+tries to search for keys in less than logn time
+values are mapped to keys in the hash table
+hashing is done via a hash function that is used to mapp values to their keys
+2 keys mapped at same location causes a collission and breaks from ideal one to one into many to one
+To fix many to one functions:-
+1. Open Hashing 
+    we will consume extra space than what is originally provided to us
+    eg: Chaining
+2. Closed Hashing
+    we will utilise only the space provided to us and not increase the space
+    eg: Linear Probing , Quadratic Probing , Double Hashing
+
+Chaining
+Implemented using array of pointers to linked lists
+we are taking extra space to store using pointers and theres no limit to that extra space
+loading factor - represented using lambda = n/size (n=no of elements and size=given size of array)
+analysis of Hashing is always done based on loading factor
+necessary to choose proper hash function
+
+Linear Probing
+whenever there is a collission try to store the element at the next free space
+may be more than one collissions happening while probing to check for space
+take an element get its index using hash function and continue finding that element in a linear fashion until element is found or free space.
+loading factor will always be less than 1
+but IT SHOULD ALWAYS BE LESS THAN OR EQUAL TO 0.5
+after deletion keys need to be moved upwards else itll cause free space and ruin searching
+therefore after deletion take out all the keys and enter then in the hash table once again this is known as REHASHING
+deletion is not suggested in linear probing
+
+Quadratic Probing
+loading factor will always be less than 1
+but IT SHOULD ALWAYS BE LESS THAN OR EQUAL TO 0.5
+when collission occurs the next position to insert the element is based on Quadratic value ie f(i)= i^2
+
+Double Hashing
+Take 2 hash functions
+second hash function should have 2 properties:
+    it should be able to give the result 0
+    it should try to probe all the locations
+
+Hash Functions 
+they should allow uniform distribution of elements
+1. Mod 
+    h(x)= h % size
+    size should preferably be a prime no.
+2. Midsquare
+    take the square of that key and take the middle digit of it 
+3. Folding 
+    folding the digits of an element by taking a long no and take 2 or more at a time and adding them up 
+    useful for strings since they can be folded using ASCII values
+
+GRAPHS
+collection of vertices and edges
+path is a set of all vertices between 2 vertices
+Directed Acyclic Graph DAG - No cycles in the graph whatsoever
+
+Representation of Undirected GRAPHS
+1. Adjacency Matrix
+    put one on [i][j] if an edge exists 
+    if weighted graph given then we can use those weights instead of 1 - cost Adjacency Matrix
+2. Adjacency List 
+    Array of linked list
+    put the vertices in a linked list mapped to that index if theyre connected
+    if weighted then store the weight next to the index as well - cost Adjacency list
+3. Compact List 
+    single dimensional array to represent the graph
+    start from 1 index instead of 0
+    first v index represent vertices
+    leave one empty space after that
+    then start entering edges starting from those of vertex 1
+    put the starting index of these edges in the block for vertices for each vertex 
+    use the empty gap to put the ending point index in it
+
+Representation of Directed GRAPHS
+1. Adjacency Matrix
+    one is filled only one time that is from i to j
+    similarly for Adjacency list as well
+
+Graph without any cycles is a tree.
+
+Breadth First Search
+Visiting all adjacent vertices for a given vertex while traversing
+done with the help of QUEUE for FIFO structure while visiting and exploring
+take out visited vertex from queue and start exploring that vertex
+make dotted lines if exploring a vertex leads to an already visited vertex
+Queue becomes empty then BFS is completed
+given result is called BFS Spanning Tree 
+time taken - O(n) but while programming - O(n^2)
+
+Depth First Search
+Use STACK instead for LIFO structure
+visit a node then explore it
+after getting just one other node to explore visit that node and explore it and push the prev node to the STACK
+whenever you get a new vertex suspend the old vertex and explore the new one
+if we have visited all adjacent or there is no more adjacent then it is completely explores then start going back in the stack and continue exploration
+time taken - O(n) but while programming - O(n^2)
