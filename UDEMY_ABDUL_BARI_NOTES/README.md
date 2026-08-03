@@ -9,11 +9,11 @@ Notes and codes from [Mastering Data Structures & Algorithms using C and C++](ht
 | `notes/` | Written notes covering video ranges |
 
 ## 📊 Course Progress
-| Video Range | Topic | Notes | Code |
-|-------------|-------|-------|------|
-| VID 55–91 | Arrays | ✅ | ✅ |
-| VID 92–127 | Recursion | ✅ | ❌ |
-| VID 128–163 | Linked Lists | ✅ | ❌ |
+| Video Range | Topic | Notes |
+|-------------|-------|-------|
+| VID 55–91 | Arrays | ✅ |
+| VID 92–127 | Recursion | ✅ |
+| VID 128–163 | Linked Lists | ✅ |
 
-## 📌 Course: 40 / 460 videos completed
-## 🎯 LeetCode start target: After video ~85 (Arrays done)
+## ✅ Course Status
+Completed the full course.
