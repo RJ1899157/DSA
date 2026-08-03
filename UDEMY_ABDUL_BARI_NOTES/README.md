@@ -5,15 +5,22 @@ Notes and codes from [Mastering Data Structures & Algorithms using C and C++](ht
 ## 📁 Structure
 | Folder | Description |
 |--------|-------------|
-| `codes/` | C++ programs written during the course |
 | `notes/` | Written notes covering video ranges |
 
 ## 📊 Course Progress
-| Video Range | Topic | Notes |
-|-------------|-------|-------|
-| VID 55–91 | Arrays | ✅ |
-| VID 92–127 | Recursion | ✅ |
-| VID 128–163 | Linked Lists | ✅ |
+| Video Range | Notes |
+|-------------|-------|
+| VID 55–91 | ✅ |
+| VID 92–127 | ✅ |
+| VID 128–163 | ✅ |
+| VID 164–199 | ✅ |
+| VID 200–235 | ✅ |
+| VID 236–271 | ✅ |
+| VID 272–307 | ✅ |
+| VID 308–343 | ✅ |
+| VID 344–379 | ✅ |
+| VID 380–414 | ✅ |
+| VID 415–449 | ✅ |
 
 ## ✅ Course Status
-Completed the full course.
+Completed the full course and documented the available note ranges.
