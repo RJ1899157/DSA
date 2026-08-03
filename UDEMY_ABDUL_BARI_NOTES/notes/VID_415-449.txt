@@ -36,3 +36,138 @@ Cost of Merging depoends on the Pattern u choose
 sort the lists on the basis of their size then choose the two shortest ones and select them for merging and repeat this process again and again
 
 Dynamic Programming
+used for solving optimization problems
+a problem should be solved in stages in each stage you have to take decisions these sequence of decisions will give you Optimal result
+follows the principle of optimality
+storing the result of a call in a table is called memoization and saves compute time during overlapping subproblems
+
+0/1 Knapsack Problem 
+    put object in bag to maximise the profit but no fractional component of objects are allowed either put the full object or not at all
+    total weight should be less than or equal to the bag's capacity
+
+    Using Sets Method
+    takes O(2^n) time
+    take a tree having all possibilities for all objects either included or not included
+    prepare set i with {profit, weight}
+    make profit weight sets for al possible combinations by considering each object one at a time being added or not and fulfilling the constraints as well
+    if you find such sets in which profit is more and weight is lesser then discard the lesser profit set
+    this method doesnt give us all 16 possible combinations so that saves us time 
+    while calculation check whcih set had the max set in it and include that object and subtract PW from the max set
+    check new max set's occurrence in the earliest set 
+
+    Using Recursion
+    just gives the maximum possible result doesnt tell us which objects to include and which not to
+
+    Using Tabulation Method(Bottom - Up approach)
+    take 0 row and 0 column as well
+    no of columns = capacity of the bag
+    no of rows = no of objects 
+    when capacity of bag is so that we can put the object and put its profit in that cell
+    when either objects can be included then always choose the higher profit object to enter
+    T[N][M]=max(T[N-1][M] , T[N-1][M-w[N]]+P[N])
+
+    to check which objects are included:-
+    check for the highest profit and see if it appears on the row above if it doesnt then include that object and subtract and find the new profit
+    if it does exist in the previous row then dont include that object and move to the previous row
+
+Matrix Chain Multiplication
+    to multiply multiple matrices so that total number of Multiplications are minimized
+
+    Using Recursion
+    cost = m(i,k) + m(k+1,j) + d[i-1] x d[k] x d[j] for each combinations
+    always choose the lesser cost
+    N! or O(n^n)
+
+    Using Memoization 
+    maintain a table with all combinations of matrix numbers
+    fill 0 for all diagnols 
+    once number of Multiplications are calculated fill the table with that number and refer to later on for ease of calculation
+    only one triangle is filled in the matrix
+    just store all values in the matrix variable and make sure it checks if the result is already calculated or not
+    O(n^2)
+    have another table of K values so that cost can tell us how to parenthesize as well
+    fill the K value that gave us the lesser cost
+    check the K table and that will tell us the parenthesization
+    takes O(n^2) space
+
+    Using Tabulation
+    similar to others
+
+Longest Common Subsequence
+    elements appear in the same order but can be omitted over to find a common sequence
+    not a substring or a subset but a Subsequence
+    there can be 2^n Subsequences for n letter string 
+
+    Using Recursion
+    assign pointers to each string and iterate over them
+    if elements match then increment both 
+        return 1+LCS(i-1,j-1)[starting from the last]
+    if they dont then 
+        return max (LCS(i+1 ,j) ,LCS(i ,j+1))
+    terminal condition is if i==0 || j==0 return 0
+    Only gives us the size of the LCS not the actual Subsequence
+    O(2^n)
+
+    Using Memoization
+    make a 2D table with the string elements on each axis starting from 0th row and column
+    for each i and j in Recursion method fill the table accordingly 
+    O(m . n)
+    use the 2D matrix for returning instead of Recursion
+
+    Using Tabulation
+    take rows for the smaller string and columns for the longer string not really a problem but ease of looking
+    0 means no character therefore will always be 0 for all cells
+    for every cell after , if elements match then diagnol value +1
+    if not then choose max from prev cell(left one) or the one above it
+    L[M][N] is the LCS
+    O(n.m) but is iterative and takes less space
+    check if highest element present in prev row or coloumn
+    if not then stop take that element out and go diagnolly 
+
+Maximum SubArray Sum 
+    find the portion of the given array that gives the highest possible Sum
+    Method 1:-
+        use two pointers i and j at index zero
+        find sum then move j forward till the end
+        similarly after j reaches the end move i and j both to i+1 and iterate j again
+        maintain maxSum=MIN_INT and update it again and again and return it in the end
+        takes O(n^3) 
+    Method 2(Better and Improved):-
+        instead of inner loop just use a local sum variable just drops the complexity down to O(n^2)
+    Method 3(Using DP):-
+        same procedure but we want the arry of highest values to consider 
+        while iterating now dont add all elements to the prev sum WHEN SUM BECOMES NEGATIVE and take that value as it is
+        take the max out of all those values and that is our answer
+        have a single for loop
+        with s[0]=a[0] if s[i-1] is negative then s[i]=a[i] else s[i]=s[i-1]+a[i]
+        return the max element from this array
+        takes O(n) time and space
+    Method 4(Using Kadane's Algorithm):-
+        instead of maintaining an array of sums we just use a variable to store the prevsum
+        also have a the MaxSub to store the locally better sum out of the current and prev sum
+        compare prevsum like method 3 but compare maxsub to prevsum
+        O(n) time and O(1) space
+        have a substart and end variable if you wish to know the index of the SubArray as well
+    Method 5(Using Divide and Conquer):-
+        find max subarray for LHS and RHS and combining both sides and comparing all 3 and return the greatest one
+        have leftmax rightmax and crossSum to compare
+        crossSum take low mid and high as arguments
+        crossSum finds leftsub and righsub from middle and returns the added value
+        takes O(nlogn) time
+
+BACKTRACKING
+solving problems that have multiple possible solutions and we want all of them
+to find all possible solutions of a problem by applying bounding conditions
+approach of going back and trying the next possibility to reach the solution is nothing but backtracking 
+
+N-Queens Problem
+N queens on a N X N chessboard arranged such that no 2 queens attack each other (where N is a power of 2)
+mirror image of a solution is also the correct solution for a nQueen problem
+use a 1D array just to store the positions of the queens
+then iterate over them recursively with a condition to check for if valid which shall check if the queen is under attack or not by previous queens
+to check validity run the for loop for k-1 times to check with all other previous queen's positions
+    if j value of prev queen is same as j value of the current queen then return false
+    if i-j = k-l then they are on the same diagnol and return false
+    if i+j = k+l then also they are on the same diagnol and return false
+    i. e. i - k = |j-l| then it lies on the diagnol and return false
+    O(n^n)
